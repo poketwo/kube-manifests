@@ -1,0 +1,8 @@
+server:
+  persistentVolume:
+    size: 60Gi
+
+nodeExporter:
+  hostNetwork: false
+  hostPID: false
+  hostRootfs: false
