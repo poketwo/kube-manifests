@@ -1,0 +1,43 @@
+image:
+  repository: tryretool/backend
+  tag: "2.99.5"
+
+config:
+  licenseKeySecretName: retool-auth
+  useInsecureCookies: false
+  auth:
+    google:
+      clientId: 997504863600-6nfvs9g5cbtovgnfjpq50h6r3p7jnr2l.apps.googleusercontent.com
+      clientSecretSecretName: retool-auth
+      domain: poketwo.net
+  encryptionKeySecretName: retool-auth
+  jwtSecretSecretName: retool-auth
+  postgresql:
+    host: retool-postgres-postgresql.internal
+    port: 5432
+    db: retool
+    user: retool
+    passwordSecretName: retool-postgres
+    passwordSecretKey: password
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: retool.poketwo.io
+      paths:
+        - path: /
+
+postgresql:
+  enabled: false
+
+persistentVolumeClaim:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 20Gi
+
+env:
+  DEFAULT_GROUP_FOR_DOMAINS: poketwo.net -> all-users

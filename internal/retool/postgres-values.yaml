@@ -1,0 +1,6 @@
+auth:
+  username: retool
+  database: retool
+  existingSecret: retool-postgres
+
+architecture: standalone
