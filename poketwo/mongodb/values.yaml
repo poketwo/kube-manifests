@@ -1,0 +1,61 @@
+architecture: replicaset
+
+auth:
+  enabled: true
+  existingSecret: mongodb-auth
+
+replicaSetName: poketwo
+replicaSetHostnames: true
+replicaCount: 2
+
+resources:
+  limits:
+    cpu: 20000m
+    memory: 80Gi
+  requests:
+    cpu: 6000m
+    memory: 60Gi
+
+livenessProbe:
+  enabled: false
+
+persistence:
+  enabled: true
+  size: 3Ti
+
+externalAccess:
+  enabled: true
+  service:
+    type: LoadBalancer
+    ports:
+      mongodb: 27017
+    loadBalancerIPs:
+      - 204.16.243.193
+      - 204.16.243.194
+
+volumePermissions:
+  enabled: true
+
+arbiter:
+  enabled: true
+  resources:
+    limits:
+      cpu: 100m
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 2Gi
+
+metrics:
+  enabled: false
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+pdb:
+  create: true
+  minAvailable: 2
