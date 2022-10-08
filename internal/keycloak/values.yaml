@@ -1,0 +1,49 @@
+auth:
+  adminUser: admin
+  existingSecret: keycloak-auth
+
+proxy: edge
+replicaCount: 1
+resources:
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+  requests:
+    cpu: 100m
+    memory: 50Mi
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  hostname: auth.poketwo.io
+
+metrics:
+  enabled: true
+
+postgresql:
+  enabled: true
+  auth:
+    existingSecret: keycloak-postgres-auth
+  architecture: standalone
+
+extraVolumes:
+  - name: keycloak
+    persistentVolumeClaim:
+      claimName: keycloak
+
+extraVolumeMounts:
+  - mountPath: /opt/bitnami/keycloak/providers/keycloak-discord-0.4.0.jar
+    name: keycloak
+    subPath: providers/keycloak-discord-0.4.0.jar
+  - mountPath: /opt/bitnami/keycloak/themes/keywind
+    name: keycloak
+    subPath: themes/keywind/theme/keywind
+
+extraEnvVars:
+  - name: KC_HOSTNAME_URL
+    value: https://auth.poketwo.io
+  - name: KC_ADMIN_HOSTNAME_URL
+    value: https://auth.poketwo.io
