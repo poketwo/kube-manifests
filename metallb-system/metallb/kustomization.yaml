@@ -4,6 +4,7 @@ namespace: metallb-system
 
 helmCharts:
   - releaseName: metallb
+    namespace: metallb-system
     name: metallb
     version: 0.13.4
     repo: https://metallb.github.io/metallb
