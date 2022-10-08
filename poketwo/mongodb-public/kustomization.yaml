@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: poketwo
+
+helmCharts:
+  - releaseName: mongodb-public
+    name: mongodb
+    version: 13.1.1
+    repo: https://charts.bitnami.com/bitnami
+    valuesFile: values.yaml
+
+resources:
+  - pvc-0.yaml
+  - pvc-1.yaml
+  - secret.yaml
