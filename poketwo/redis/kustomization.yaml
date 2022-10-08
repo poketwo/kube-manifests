@@ -12,3 +12,6 @@ helmCharts:
 resources:
   - pvc.yaml
   - secret.yaml
+
+patchesStrategicMerge:
+  - patches/redis-master.yaml

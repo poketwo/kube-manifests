@@ -17,7 +17,6 @@ master:
     size: 32Gi
   service:
     type: LoadBalancer
-    loadBalancerIP: 204.16.243.195
 
 metrics:
   enabled: true
