@@ -7,3 +7,6 @@ helmCharts:
     name: sealed-secrets
     version: 2.6.9
     repo: https://bitnami-labs.github.io/sealed-secrets
+
+resources:
+  - https://raw.githubusercontent.com/bitnami-labs/sealed-secrets/v0.16.0/helm/sealed-secrets/crds/sealedsecret-crd.yaml
