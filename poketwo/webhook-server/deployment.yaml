@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook-server
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: webhook-server
+  template:
+    metadata:
+      labels:
+        app: webhook-server
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/poketwo/webhook-server:latest
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              memory: "100Mi"
+              cpu: "200m"
+            requests:
+              memory: "10Mi"
+              cpu: "50m"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          env:
+            - name: DATABASE_HOST
+              value: mongodb-0.mongodb-headless.poketwo.svc.cluster.local:27017,mongodb-1.mongodb-headless.poketwo.svc.cluster.local:27017
+            - name: DATABASE_USERNAME
+              value: root
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-auth
+                  key: mongodb-root-password
+            - name: DATABASE_NAME
+              value: pokemon
+            - name: DBL_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: dbl-auth
+                  key: dbl-secret
+            - name: REDIS_URI
+              value: redis://redis-master.poketwo.svc.cluster.local
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-auth
+                  key: password
+            - name: STRIPE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: stripe-auth
+                  key: api-key
+            - name: STRIPE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: stripe-auth
+                  key: webhook-secret
+            - name: CAPTCHA_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: webhook-server
+                  key: captcha-secret
+      imagePullSecrets:
+        - name: ghcr-auth
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: webhook-server
+                topologyKey: kubernetes.io/hostname
