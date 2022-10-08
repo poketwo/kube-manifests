@@ -1,0 +1,9 @@
+clusterOperator:
+  replicaCount: 1
+  metrics:
+    enabled: true
+
+msgTopologyOperator:
+  replicaCount: 1
+  metrics:
+    enabled: true
