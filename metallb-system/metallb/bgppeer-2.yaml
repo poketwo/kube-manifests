@@ -1,0 +1,16 @@
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: two
+  namespace: metallb-system
+spec:
+  myASN: 4200000003
+  peerASN: 64535
+  peerAddress: 204.16.241.193
+  nodeSelectors:
+    - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - deino.poketwo.io
+            - eevee.poketwo.io
