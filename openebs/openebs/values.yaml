@@ -1,2 +1,5 @@
 localpv-provisioner:
   enabled: true
+
+legacy:
+  enabled: false
