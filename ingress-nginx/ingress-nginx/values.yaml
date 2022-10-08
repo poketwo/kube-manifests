@@ -1,0 +1,20 @@
+controller:
+  ingressClass: nginx
+  ingressClassResource:
+    name: nginx
+    enabled: true
+    default: true
+
+  replicaCount: 1
+
+  service:
+    enabled: true
+    enableHttp: false
+    enableHttps: true
+
+    type: LoadBalancer
+    loadBalancerIP: 204.16.243.192
+    loadBalancerClass: metallb
+
+  metrics:
+    enabled: true
