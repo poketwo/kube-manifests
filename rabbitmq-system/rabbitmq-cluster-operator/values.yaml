@@ -7,3 +7,4 @@ msgTopologyOperator:
   replicaCount: 1
   metrics:
     enabled: true
+  existingWebhookCertSecret: rabbitmq-rabbitmq-messaging-topology-operator-webhook

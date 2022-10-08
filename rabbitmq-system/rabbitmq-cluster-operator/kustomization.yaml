@@ -9,3 +9,6 @@ helmCharts:
     version: 2.6.7
     repo: https://charts.bitnami.com/bitnami
     valuesFile: values.yaml
+
+resources:
+  - secret.yaml
