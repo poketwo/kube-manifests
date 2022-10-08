@@ -9,4 +9,4 @@ resources:
   - ingress.yaml
 
 patchesStrategicMerge:
-  - argocd-cm.yaml
+  - patches/argocd-cm.yaml
