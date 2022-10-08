@@ -4,6 +4,7 @@ namespace: rabbitmq-system
 
 helmCharts:
   - releaseName: rabbitmq
+    namespace: rabbitmq-system
     name: rabbitmq-cluster-operator
     version: 2.6.7
     repo: https://charts.bitnami.com/bitnami
