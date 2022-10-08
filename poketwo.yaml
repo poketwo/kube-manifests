@@ -10,6 +10,8 @@ spec:
         revision: HEAD
         directories:
           - path: "*/*"
+          - path: "argocd/*"
+            exclude: true
   template:
     metadata:
       name: "{{path[0]}}-{{path.basename}}"
