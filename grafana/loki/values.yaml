@@ -1,0 +1,16 @@
+loki:
+  config:
+    limits_config:
+      max_query_series: 2000
+
+  persistence:
+    enabled: true
+    size: 100Gi
+
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 10Gi
+    requests:
+      cpu: 4000m
+      memory: 10Gi
