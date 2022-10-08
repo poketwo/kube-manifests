@@ -10,6 +10,7 @@ helmCharts:
     valuesFile: values.yaml
 
 resources:
+  - storageclass.yaml
   - pv-0.yaml
   - pv-1.yaml
   - pvc-0.yaml
