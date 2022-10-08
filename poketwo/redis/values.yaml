@@ -1,0 +1,26 @@
+image:
+  registry: docker.io
+  repository: bitnami/redis
+  tag: 7.0.2-debian-11-r1
+
+architecture: standalone
+
+usePassword: true
+
+auth:
+  existingSecret: redis-auth
+  existingSecretPasswordKey: password
+
+master:
+  persistence:
+    enabled: true
+    size: 32Gi
+  service:
+    type: LoadBalancer
+    loadBalancerIP: 204.16.243.195
+
+metrics:
+  enabled: true
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9121"
