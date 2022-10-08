@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helper-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helper-bot
+  template:
+    metadata:
+      labels:
+        app: helper-bot
+    spec:
+      containers:
+        - name: helper-bot
+          image: ghcr.io/poketwo/helper-bot:latest
+          resources:
+            limits:
+              memory: "4Gi"
+              cpu: "500m"
+            requests:
+              memory: "4Gi"
+              cpu: "500m"
+          env:
+            - name: DATABASE_HOST
+              value: mongodb-public-0.mongodb-public-headless
+            - name: DATABASE_USERNAME
+              value: root
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-public-auth
+                  key: mongodb-root-password
+            - name: DATABASE_NAME
+              value: support
+
+            - name: POKETWO_DATABASE_HOST
+              value: mongodb-0.mongodb-headless
+            - name: POKETWO_DATABASE_USERNAME
+              value: root
+            - name: POKETWO_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-auth
+                  key: mongodb-root-password
+            - name: POKETWO_DATABASE_NAME
+              value: pokemon
+
+            - name: PREFIX
+              value: "? >"
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: helper-bot
+                  key: token
+
+            - name: REDIS_URI
+              value: redis://redis-master.poketwo.svc.cluster.local/1
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-auth
+                  key: password
+
+            - name: POKETWO_REDIS_URI
+              value: redis://redis-master.poketwo.svc.cluster.local/0
+            - name: POKETWO_REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-auth
+                  key: password
+
+      imagePullSecrets:
+        - name: ghcr-auth
