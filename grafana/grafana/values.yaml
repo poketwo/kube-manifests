@@ -1,0 +1,6 @@
+admin:
+  existingSecret: grafana
+
+persistence:
+  enabled: true
+  size: 32Gi
