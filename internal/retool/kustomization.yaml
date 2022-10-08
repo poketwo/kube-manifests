@@ -14,3 +14,7 @@ helmCharts:
     version: 11.9.2
     repo: https://charts.bitnami.com/bitnami
     valuesFile: postgres-values.yaml
+
+resources:
+  - postgres-secret.yaml
+  - secret.yaml
