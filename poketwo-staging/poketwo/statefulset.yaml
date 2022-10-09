@@ -69,7 +69,7 @@ spec:
             - name: EXT_SERVER_URL
               value: https://server.poketwo.io
             - name: API_GATEWAY
-              value: ws://gateway-proxy-staging.poketwo.svc.cluster.local:7878
+              value: ws://gateway-proxy:7878
             - name: ASSETS_BASE_URL
               value: https://staging-assets.poketwo.net
 
