@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-public-1-external
+  namespace: poketwo
 spec:
   loadBalancerClass: metallb
   loadBalancerIP: 204.16.243.194
