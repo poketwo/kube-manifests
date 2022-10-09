@@ -4,6 +4,7 @@ namespace: internal
 
 helmCharts:
   - releaseName: keycloak
+    namespace: internal
     name: keycloak
     version: 10.1.2
     repo: https://charts.bitnami.com/bitnami

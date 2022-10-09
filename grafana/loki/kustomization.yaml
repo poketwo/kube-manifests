@@ -4,6 +4,7 @@ namespace: grafana
 
 helmCharts:
   - releaseName: loki
+    namespace: grafana
     name: loki-stack
     version: 2.5.0
     repo: https://grafana.github.io/helm-charts

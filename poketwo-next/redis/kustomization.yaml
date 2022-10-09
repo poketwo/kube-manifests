@@ -4,6 +4,7 @@ namespace: poketwo-next
 
 helmCharts:
   - releaseName: redis
+    namespace: poketwo-next
     name: redis
     version: 16.12.2
     repo: https://charts.bitnami.com/bitnami

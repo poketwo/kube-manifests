@@ -4,6 +4,7 @@ namespace: tailscale-svc-lb
 
 helmCharts:
   - releaseName: tailscale-svc-lb
+    namespace: tailscale-svc-lb
     name: tailscale-svc-lb
     version: 1.0.0
     repo: https://clrxbl.github.io/tailscale-svc-lb

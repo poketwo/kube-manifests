@@ -4,6 +4,7 @@ namespace: grafana
 
 helmCharts:
   - releaseName: prometheus
+    namespace: grafana
     name: prometheus
     version: 15.0.1
     repo: https://prometheus-community.github.io/helm-charts

@@ -4,6 +4,7 @@ namespace: openebs
 
 helmCharts:
   - releaseName: openebs
+    namespace: openebs
     name: openebs
     version: 2.12.8
     repo: https://openebs.github.io/charts
