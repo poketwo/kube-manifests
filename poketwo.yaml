@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/oliver-ni/kube.git
+        repoURL: https://github.com/poketwo/kube-manifests.git
         revision: HEAD
         directories:
           - path: "*/*"
@@ -19,7 +19,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/oliver-ni/kube.git
+        repoURL: https://github.com/poketwo/kube-manifests.git
         targetRevision: HEAD
         path: "{{path}}"
       destination:
