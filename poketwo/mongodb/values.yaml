@@ -29,9 +29,6 @@ externalAccess:
     type: LoadBalancer
     ports:
       mongodb: 27017
-    loadBalancerIPs:
-      - 204.16.243.193
-      - 204.16.243.194
 
 volumePermissions:
   enabled: true
