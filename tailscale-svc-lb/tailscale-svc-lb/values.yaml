@@ -1,33 +1,6 @@
 loadBalancerClass: tailscale
 
-# controller:
-#   resources:
-#     limits:
-#       cpu: 100m
-#       memory: 2Gi
-#     requests:
-#       cpu: 100m
-#       memory: 2Gi
-
 proxy:
   type: Deployment
-  deploymentReplicas: 2
+  deploymentReplicas: 1
   generateHostnameFromServiceName: true
-
-  # runtime:
-  #   resources:
-  #     limits:
-  #       cpu: 100m
-  #       memory: 128Mi
-  #     requests:
-  #       cpu: 100m
-  #       memory: 128Mi
-
-  # leaderElector:
-  #   resources:
-  #     limits:
-  #       cpu: 100m
-  #       memory: 128Mi
-  #     requests:
-  #       cpu: 100m
-  #       memory: 128Mi
