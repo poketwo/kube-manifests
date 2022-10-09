@@ -29,7 +29,7 @@ spec:
               cpu: "500m"
           env:
             - name: DATABASE_HOST
-              value: mongodb-0.mongodb-headless:27017,mongodb-1.mongodb-headless:27017/?replicaSet=poketwo
+              value: mongodb
             - name: DATABASE_USERNAME
               value: root
             - name: DATABASE_PASSWORD
