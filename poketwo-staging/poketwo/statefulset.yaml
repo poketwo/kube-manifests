@@ -41,7 +41,7 @@ spec:
               value: pokemon_dev
 
             - name: REDIS_URI
-              value: redis://redis-master.poketwo.svc.cluster.local/1
+              value: redis://redis-master
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
