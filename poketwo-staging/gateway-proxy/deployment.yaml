@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway-proxy
+  template:
+    metadata:
+      labels:
+        app: gateway-proxy
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "7878"
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/poketwo/gateway-proxy:latest
+          ports:
+            - containerPort: 7878
+          resources:
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+            requests:
+              memory: "2Gi"
+              cpu: "1000m"
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: 7878
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          volumeMounts:
+            - name: config
+              mountPath: /config.json
+              subPath: config.json
+      volumes:
+        - name: config
+          secret:
+            secretName: gateway-proxy
+      imagePullSecrets:
+        - name: ghcr-auth
