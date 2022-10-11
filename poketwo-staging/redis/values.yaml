@@ -9,8 +9,6 @@ master:
   persistence:
     enabled: true
     size: 8Gi
-  service:
-    type: LoadBalancer
 
 metrics:
   enabled: true
