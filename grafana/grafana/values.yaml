@@ -4,3 +4,8 @@ admin:
 persistence:
   enabled: true
   size: 32Gi
+
+grafana.ini:
+  server:
+    domain: metrics.poketwo.io
+    root_url: "https://metrics.poketwo.io/"
