@@ -6,3 +6,6 @@ nodeExporter:
   hostNetwork: false
   hostPID: false
   hostRootfs: false
+
+alertmanager:
+  enabled: false
