@@ -47,14 +47,7 @@ arbiter:
       memory: 2Gi
 
 metrics:
-  enabled: false
-  resources:
-    limits:
-      cpu: 100m
-      memory: 256Mi
-    requests:
-      cpu: 100m
-      memory: 256Mi
+  enabled: true
 
 pdb:
   create: true
