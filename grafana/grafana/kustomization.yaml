@@ -6,7 +6,7 @@ helmCharts:
   - releaseName: grafana
     namespace: grafana
     name: grafana
-    version: 6.20.4
+    version: 6.40.4
     repo: https://grafana.github.io/helm-charts
     valuesFile: values.yaml
 
