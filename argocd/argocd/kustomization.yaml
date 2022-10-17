@@ -7,7 +7,7 @@ bases:
 
 resources:
   - ingress.yaml
-  - argocd-notifications-secret
+  - argocd-notifications-secret.yaml
 
 patchesStrategicMerge:
   - patches/argocd-cm.yaml
