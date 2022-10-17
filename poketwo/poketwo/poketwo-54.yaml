@@ -1,0 +1,79 @@
+# gateway-proxy is broken for clusters 54 and 143
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poketwo-54
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poketwo-54
+  template:
+    metadata:
+      labels:
+        app: poketwo-54
+    spec:
+      containers:
+        - name: poketwo
+          image: ghcr.io/poketwo/poketwo:latest
+          resources:
+            limits:
+              memory: 5Gi
+              cpu: 500m
+            requests:
+              memory: 3Gi
+              cpu: 50m
+          env:
+            - name: DATABASE_HOST
+              value: mongodb-0.mongodb-headless.poketwo.svc.cluster.local:27017,mongodb-1.mongodb-headless.poketwo.svc.cluster.local:27017/?replicaSet=poketwo
+            - name: DATABASE_USERNAME
+              value: root
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-auth
+                  key: mongodb-root-password
+            - name: DATABASE_NAME
+              value: pokemon
+
+            - name: REDIS_URI
+              value: redis://redis-master.poketwo.svc.cluster.local
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-auth
+                  key: password
+
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: poketwo
+                  key: token
+
+            - name: NUM_SHARDS
+              value: "944"
+            - name: NUM_CLUSTERS
+              value: "152"
+
+            - name: CLUSTER_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+
+            - name: SERVER_URL
+              value: http://image-server.poketwo.svc.cluster.local:8080
+            - name: EXT_SERVER_URL
+              value: https://server.poketwo.io
+            # - name: API_BASE
+            #   value: http://http-proxy.poketwo.svc.cluster.local:8080/api/v10
+            # - name: API_GATEWAY
+            #   value: ws://gateway-proxy.poketwo.svc.cluster.local:7878
+            - name: DBL_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: dbl-auth
+                  key: dbl-token
+
+      imagePullSecrets:
+        - name: ghcr-auth
