@@ -11,5 +11,5 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-            - deino.poketwo.io
-            - eevee.poketwo.io
+            - deino
+            - eevee

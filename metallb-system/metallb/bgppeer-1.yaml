@@ -11,6 +11,6 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-            - abra.poketwo.io
-            - blissey.poketwo.io
-            - corsola.poketwo.io
+            - abra
+            - blissey
+            - corsola
