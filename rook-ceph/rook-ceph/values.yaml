@@ -1,0 +1,35 @@
+pspEnable: false
+
+csi:
+  # CephCSI RBD plugin Volumes
+  csiRBDPluginVolume:
+    - name: lib-modules
+      hostPath:
+        path: /run/booted-system/kernel-modules/lib/modules/
+    - name: host-nix
+      hostPath:
+        path: /nix
+
+  # CephCSI RBD plugin Volume mounts
+  csiRBDPluginVolumeMount:
+    - name: host-nix
+      mountPath: /nix
+      readOnly: true
+
+  # CephCSI CephFS plugin Volumes
+  csiCephFSPluginVolume:
+    - name: lib-modules
+      hostPath:
+        path: /run/booted-system/kernel-modules/lib/modules/
+    - name: host-nix
+      hostPath:
+        path: /nix
+
+  # CephCSI CephFS plugin Volume mounts
+  csiCephFSPluginVolumeMount:
+    - name: host-nix
+      mountPath: /nix
+      readOnly: true
+
+monitoring:
+  enabled: true

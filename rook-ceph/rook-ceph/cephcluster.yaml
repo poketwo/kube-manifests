@@ -1,0 +1,36 @@
+apiVersion: ceph.rook.io/v1
+kind: CephCluster
+metadata:
+  name: rook-ceph
+  namespace: rook-ceph
+spec:
+  cephVersion:
+    image: quay.io/ceph/ceph:v17.2.5
+    allowUnsupported: false
+
+  dataDirHostPath: /var/lib/rook
+
+  mon:
+    count: 1
+    allowMultiplePerNode: false
+
+  mgr:
+    count: 2
+    allowMultiplePerNode: false
+
+  dashboard:
+    enabled: true
+    ssl: true
+
+  storage:
+    useAllNodes: false
+    useAllDevices: false
+    nodes:
+      - name: deino
+        devices:
+          - name: nvme0n1p2
+          - name: nvme1n1p2
+      - name: eevee
+        devices:
+          - name: nvme0n1p2
+          - name: nvme1n1p2
