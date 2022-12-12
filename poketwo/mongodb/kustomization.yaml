@@ -17,7 +17,3 @@ resources:
   - pvc-0.yaml
   - pvc-1.yaml
   - secret.yaml
-
-patchesStrategicMerge:
-  - patches/mongodb-0-external.yaml
-  - patches/mongodb-1-external.yaml

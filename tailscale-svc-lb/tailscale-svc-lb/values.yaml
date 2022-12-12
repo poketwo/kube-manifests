@@ -1,6 +1,0 @@
-loadBalancerClass: tailscale
-
-proxy:
-  type: Deployment
-  deploymentReplicas: 1
-  generateHostnameFromServiceName: true
