@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tailscale-subnet-router
+spec:
+  selector:
+    matchLabels:
+      app: tailscale-subnet-router
+  template:
+    metadata:
+      labels:
+        app: tailscale-subnet-router
+    spec:
+      serviceAccountName: tailscale
+      hostname: poketwo-kube-prod
+      containers:
+        - name: tailscale
+          image: "ghcr.io/tailscale/tailscale:latest"
+          env:
+            - name: TS_KUBE_SECRET
+              value: tailscale
+            - name: TS_USERSPACE
+              value: "true"
+            - name: TS_AUTH_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: tailscale-auth
+                  key: ts-auth-key
+                  optional: true
+            - name: TS_ROUTES
+              value: "10.43.0.0/16,10.42.0.0/16"
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 2Gi
+            requests:
+              cpu: 100m
+              memory: 50Mi
