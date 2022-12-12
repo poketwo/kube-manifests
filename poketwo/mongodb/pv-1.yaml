@@ -4,14 +4,14 @@ metadata:
   name: datadir-mongodb-1
 spec:
   capacity:
-    storage: 3Ti
+    storage: 2Ti
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /mnt/mongo
+    path: /mongo
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -19,4 +19,4 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - eevee.poketwo.io
+                - eevee
