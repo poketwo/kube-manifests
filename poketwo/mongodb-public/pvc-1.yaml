@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: datadir-mongodb-public-1
 spec:
-  storageClassName: openebs-hostpath-retain
+  storageClassName: rook-ceph-block-retain
   accessModes:
     - ReadWriteOnce
   resources:

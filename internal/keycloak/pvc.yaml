@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: keycloak
 spec:
-  storageClassName: openebs-hostpath
+  storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
