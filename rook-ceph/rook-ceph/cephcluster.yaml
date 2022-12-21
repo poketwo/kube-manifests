@@ -26,6 +26,18 @@ spec:
     useAllNodes: false
     useAllDevices: false
     nodes:
+      - name: abra
+        devices:
+          - name: nvme0n1p2
+          - name: nvme1n1p2
+      - name: blissey
+        devices:
+          - name: nvme0n1p2
+          - name: nvme1n1p2
+      - name: corsola
+        devices:
+          - name: nvme0n1p2
+          - name: nvme1n1p2
       - name: deino
         devices:
           - name: nvme0n1p2
