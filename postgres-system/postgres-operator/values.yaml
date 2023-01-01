@@ -1,2 +1,7 @@
+image:
+  registry: registry.opensource.zalan.do
+  repository: acid/postgres-operator
+  tag: v1.8.2-43-g3e148ea5
+
 configLoadBalancer:
   db_hosted_zone: poketwo.io
