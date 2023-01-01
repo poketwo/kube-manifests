@@ -1,0 +1,2 @@
+configLoadBalancer:
+  db_hosted_zone: poketwo.io
