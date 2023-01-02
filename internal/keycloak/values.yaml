@@ -12,6 +12,21 @@ resources:
     cpu: 100m
     memory: 50Mi
 
+initContainers:
+  - name: download-resources
+    image: alpine/git
+    command:
+      - /bin/sh
+      - -c
+    args:
+      - >-
+        mkdir -p /keycloak/providers /keycloak/themes/keywind
+        && wget -nc -O /keycloak/providers/keycloak-discord-0.4.0.jar https://github.com/wadahiro/keycloak-discord/releases/download/v0.4.1/keycloak-discord-0.4.1.jar
+        && (git -C /keycloak/themes/keywind pull || git clone https://github.com/lukin/keywind /keycloak/themes/keywind)
+    volumeMounts:
+      - name: keycloak
+        mountPath: /keycloak
+
 service:
   type: ClusterIP
 
@@ -23,11 +38,16 @@ ingress:
 metrics:
   enabled: true
 
+externalDatabase:
+  host: poketwo-keycloak
+  port: 5432
+  user: keycloak
+  database: keycloak
+  existingSecret: keycloak.poketwo-keycloak.credentials.postgresql.acid.zalan.do
+  existingSecretPasswordKey: password
+
 postgresql:
-  enabled: true
-  auth:
-    existingSecret: keycloak-postgres-auth
-  architecture: standalone
+  enabled: false
 
 extraVolumes:
   - name: keycloak

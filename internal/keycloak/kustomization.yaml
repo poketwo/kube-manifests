@@ -11,6 +11,6 @@ helmCharts:
     valuesFile: values.yaml
 
 resources:
-  - postgres-secret.yaml
+  - postgresql.yaml
   - pvc.yaml
   - secret.yaml

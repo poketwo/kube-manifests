@@ -1,0 +1,18 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  name: poketwo-keycloak
+spec:
+  teamId: poketwo
+  volume:
+    size: 8Gi
+    storageClass: rook-ceph-block-retain
+  numberOfInstances: 2
+  users:
+    keycloak:
+      - superuser
+      - createdb
+  databases:
+    keycloak: keycloak
+  postgresql:
+    version: "14"
