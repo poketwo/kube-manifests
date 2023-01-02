@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: elastic-system
+
+helmCharts:
+  - releaseName: elastic-operator
+    namespace: elastic-system
+    name: eck-operator
+    version: 2.5.0
+    repo: https://helm.elastic.co
