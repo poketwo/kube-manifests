@@ -1,6 +1,6 @@
 image:
   repository: tryretool/backend
-  tag: "2.99.5"
+  tag: 2.105.2
 
 config:
   licenseKeySecretName: retool-auth
@@ -13,11 +13,12 @@ config:
   encryptionKeySecretName: retool-auth
   jwtSecretSecretName: retool-auth
   postgresql:
-    host: retool-postgres-postgresql.internal
+    host: poketwo-retool
     port: 5432
     db: retool
     user: retool
-    passwordSecretName: retool-postgres
+    ssl_enabled: true
+    passwordSecretName: retool.poketwo-retool.credentials.postgresql.acid.zalan.do
     passwordSecretKey: password
 
 ingress:
@@ -36,6 +37,7 @@ persistentVolumeClaim:
   accessModes:
     - ReadWriteOnce
   size: 20Gi
+  storageClass: rook-ceph-block-retain
 
 env:
   DEFAULT_GROUP_FOR_DOMAINS: poketwo.net -> all-users

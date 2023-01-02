@@ -1,0 +1,18 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  name: poketwo-retool
+spec:
+  teamId: poketwo
+  volume:
+    size: 8Gi
+    storageClass: rook-ceph-block-retain
+  numberOfInstances: 2
+  users:
+    retool:
+      - superuser
+      - createdb
+  databases:
+    retool: retool
+  postgresql:
+    version: "14"
