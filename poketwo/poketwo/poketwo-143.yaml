@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: poketwo-143
+        log-json: "true"
     spec:
       containers:
         - name: poketwo
