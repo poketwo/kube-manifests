@@ -1,0 +1,18 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  name: poketwo-metabase
+spec:
+  teamId: poketwo
+  volume:
+    size: 8Gi
+    storageClass: rook-ceph-block-retain
+  numberOfInstances: 2
+  users:
+    metabase:
+      - superuser
+      - createdb
+  databases:
+    metabase: metabase
+  postgresql:
+    version: "14"
