@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: helper-bot
-          image: ghcr.io/poketwo/helper-bot:latest
+          image: ghcr.io/poketwo/helper-bot:master
+          imagePullPolicy: Always
           resources:
             limits:
               memory: "4Gi"
