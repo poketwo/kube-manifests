@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: afd-icon
+  annotations:
+    service.kubernetes.io/topology-aware-hints: auto
+spec:
+  selector:
+    app: afd-icon
+  ports:
+    - port: 8000
