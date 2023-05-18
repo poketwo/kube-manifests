@@ -1,20 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: helper-bot
+  name: guiduck
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: helper-bot
+      app: guiduck
+  serviceName: guiduck
   template:
     metadata:
       labels:
-        app: helper-bot
+        app: guiduck
     spec:
       containers:
-        - name: helper-bot
-          image: ghcr.io/poketwo/helper-bot:master
+        - name: guiduck
+          image: ghcr.io/poketwo/guiduck:master
           imagePullPolicy: Always
           resources:
             limits:
@@ -53,7 +54,7 @@ spec:
             - name: BOT_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: helper-bot
+                  name: guiduck
                   key: token
 
             - name: REDIS_URI
