@@ -70,8 +70,6 @@ spec:
               value: https://server.poketwo.io
             - name: API_GATEWAY
               value: ws://gateway-proxy:7878
-            - name: ASSETS_BASE_URL
-              value: https://staging-assets.poketwo.net
 
       imagePullSecrets:
         - name: ghcr-auth
