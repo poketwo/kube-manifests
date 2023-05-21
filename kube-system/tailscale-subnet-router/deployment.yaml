@@ -15,7 +15,7 @@ spec:
       hostname: poketwo-kube-prod
       containers:
         - name: tailscale
-          image: "ghcr.io/tailscale/tailscale:latest"
+          image: ghcr.io/tailscale/tailscale:latest
           env:
             - name: TS_KUBE_SECRET
               value: tailscale
