@@ -1,6 +1,6 @@
 image:
   repository: tryretool/backend
-  tag: 2.105.2
+  tag: 2.117.2
 
 config:
   licenseKeySecretName: retool-auth
