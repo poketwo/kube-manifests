@@ -19,5 +19,4 @@ spec:
     rook_object_store: object
   sessionAffinity: None
   type: LoadBalancer
-  loadBalancerClass: metallb
   loadBalancerIP: 204.16.243.196

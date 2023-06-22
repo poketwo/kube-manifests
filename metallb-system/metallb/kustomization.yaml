@@ -6,9 +6,8 @@ helmCharts:
   - releaseName: metallb
     namespace: metallb-system
     name: metallb
-    version: 0.13.7
+    version: 0.13.10
     repo: https://metallb.github.io/metallb
-    valuesFile: values.yaml
 
 resources:
   - addresspool.yaml

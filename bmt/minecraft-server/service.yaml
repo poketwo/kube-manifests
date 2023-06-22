@@ -6,7 +6,6 @@ metadata:
     app: minecraft-server
 spec:
   type: LoadBalancer
-  loadBalancerClass: metallb
   selector:
     app: minecraft-server
   ports:

@@ -14,7 +14,6 @@ controller:
 
     type: LoadBalancer
     loadBalancerIP: 204.16.243.192
-    loadBalancerClass: metallb
 
   metrics:
     enabled: true
