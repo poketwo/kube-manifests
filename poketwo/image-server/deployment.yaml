@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: image-server
 spec:
-  replicas: 32
+  replicas: 64
   selector:
     matchLabels:
       app: image-server
