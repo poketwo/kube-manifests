@@ -6,6 +6,7 @@ metadata:
     app: minecraft-server
 spec:
   type: LoadBalancer
+  loadBalancerIP: 204.16.243.195
   selector:
     app: minecraft-server
   ports:
