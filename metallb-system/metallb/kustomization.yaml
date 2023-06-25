@@ -8,6 +8,7 @@ helmCharts:
     name: metallb
     version: 0.13.10
     repo: https://metallb.github.io/metallb
+    valuesFile: values.yaml
 
 resources:
   - addresspool.yaml
