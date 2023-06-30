@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: poketwo
-          image: ghcr.io/poketwo/poketwo:master
+          image: ghcr.io/poketwo/poketwo:production
           imagePullPolicy: Always
           resources:
             limits:
