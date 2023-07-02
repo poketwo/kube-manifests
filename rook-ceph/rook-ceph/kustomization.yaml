@@ -11,7 +11,14 @@ helmCharts:
     valuesFile: values.yaml
 
 resources:
-  - cephcluster.yaml
   - cephblockpool.yaml
+  - cephcluster.yaml
+  - cephfilesystem.yaml
+  - cephobjectstore.yaml
+  - ingress.yaml
+  - rgw-service.yaml
   - storageclass-1.yaml
   - storageclass-2.yaml
+  - storageclass-3.yaml
+  - storageclass-4.yaml
+  - storageclass-bucket.yaml
