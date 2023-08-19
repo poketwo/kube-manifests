@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: poketwo
+spec:
+  replicas: 1
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+  selector:
+    matchLabels:
+      app: poketwo
+  serviceName: poketwo
+  template:
+    metadata:
+      labels:
+        app: poketwo
+    spec:
+      containers:
+        - name: poketwo
+          image: ghcr.io/poketwo/poketwo:oliver/pok-67-update-discordpy
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "4Gi"
+              cpu: "1000m"
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+          env:
+            - name: DATABASE_HOST
+              value: mongodb
+            - name: DATABASE_USERNAME
+              value: root
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-auth
+                  key: mongodb-root-password
+            - name: DATABASE_NAME
+              value: pokemon_dev
+
+            - name: REDIS_URI
+              value: redis://redis-master
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-auth
+                  key: password
+
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: poketwo
+                  key: token
+
+            - name: NUM_SHARDS
+              value: "1"
+            - name: NUM_CLUSTERS
+              value: "1"
+
+            - name: CLUSTER_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+
+            - name: SERVER_URL
+              value: http://image-server.poketwo.svc.cluster.local:8080
+            - name: EXT_SERVER_URL
+              value: https://server.poketwo.io
+            - name: API_GATEWAY
+              value: ws://gateway-proxy:7878
+
+            - name: LANG_ROOT
+              value: lang/{locale}
+
+      imagePullSecrets:
+        - name: ghcr-auth

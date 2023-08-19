@@ -1,0 +1,15 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: ghcr-auth
+  namespace: poketwo-staging-private
+spec:
+  encryptedData:
+    .dockerconfigjson: AgBmFeKPEJCTWpYD6VDU0dKQBnec3AgkqOWMvZXDIHxbhiyC1VSgAtmn/UBWwcIVdOnHjPqHqujhMw4Si7m94iwCpv01sFDko34DE8C4JUdNpLMVEYtK1jzSR5zR7knc6RlooEh2aQuAc6ZodAJnjpq92hfOC+d8CjTYWTrWrUhVLXjw3s7EyKZ6mC32Rd2EYjTM9knWshxCrHgL2wtOZpHG2Sv7+LKmffWNFbdC5AOHR0PwwvSsWEk+toauiYcM0tq3pFeFIg2mt3HWKD+T6259zf3RaBnsgsC6hKyFKhDyuGH/NqQ/6qlD8HJ4P7F46M6yWO7sXAIm7/bAkVRdU4Y651hlrhhr72kMYs89ebJtcL5x4oKM+OE5yy9CLn/vSrZMl/6xlp5LcfuTVJVfRaEkC1LW/TPR2z03t+n2pL2XOdYwc+Mk5kXEC1YacYLVPhCgGqj7Ip7l0LwlxitAigERdiXtpd6DEYXT0i1OGHU/6s1Uy1/acjAUhk8rBZ+2yHy9JZ84xCnAZgkYy/tCMa418sHXM27RhVhf8v13a7phQn3v8av2/b7mcU6IolBfvtJc5sKsdiHQ3MuZRfKlf/zW6O7IqS79tmHwjdf7yg89BgVqvqIy+9YTZNZ3eMjm9gBZ80aPxYcXwNQq33rVpy4CPuOMYP3w/8RadgPzgIl8scfCSsCSCAD1FhmZe4fiLT6kvnmLg32VKp2FD3jmzglGwC3EcN4bsAAIWqHdIgG8kQeeZ318dde3f97+2ihTnWmucOy4nDud4byd7JOnbYdQmgVKViGW4AXqww04IPiBxQWOG+WRu7p+eYOtqbwz1E4mKE2FEA==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: ghcr-auth
+      namespace: poketwo-staging-private
+    type: kubernetes.io/dockerconfigjson
