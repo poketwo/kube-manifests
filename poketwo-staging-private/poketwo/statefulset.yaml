@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: poketwo
-          image: ghcr.io/poketwo/poketwo:oliver/pok-67-update-discordpy
+          image: ghcr.io/poketwo/poketwo:oliver-pok-67-update-discordpy
           imagePullPolicy: Always
           resources:
             limits:
