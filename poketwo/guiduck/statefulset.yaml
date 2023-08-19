@@ -26,7 +26,7 @@ spec:
               cpu: "500m"
           env:
             - name: DATABASE_HOST
-              value: mongodb-public-0.mongodb-public-headless
+              value: mongodb-public-0.mongodb-public-headless,mongodb-public-1.mongodb-public-headless
             - name: DATABASE_USERNAME
               value: root
             - name: DATABASE_PASSWORD
@@ -38,7 +38,7 @@ spec:
               value: support
 
             - name: POKETWO_DATABASE_HOST
-              value: mongodb-0.mongodb-headless
+              value: mongodb-0.mongodb-headless,mongodb-1.mongodb-headless
             - name: POKETWO_DATABASE_USERNAME
               value: root
             - name: POKETWO_DATABASE_PASSWORD
