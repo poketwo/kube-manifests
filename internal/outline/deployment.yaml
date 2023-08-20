@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: outline
-          image: outlinewiki/outline:0.66.3
+          image: outlinewiki/outline:0.71.0
           ports:
             - containerPort: 3000
           resources:
