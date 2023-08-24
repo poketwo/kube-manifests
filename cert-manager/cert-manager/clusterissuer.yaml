@@ -13,8 +13,8 @@ spec:
           cloudflare:
             email: oliver.ni@gmail.com
             apiKeySecretRef:
-              name: cloudflare-api-key
-              key: api-key
+              name: cloudflare-api-token
+              key: api-token
       - http01:
           ingress:
             ingressClassName: nginx
