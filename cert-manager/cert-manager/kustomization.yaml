@@ -8,5 +8,4 @@ helmCharts:
     name: cert-manager
     version: 1.12.3
     repo: https://charts.jetstack.io
-    valuesInline:
-      installCRDs: true
+    valuesFile: values.yaml
