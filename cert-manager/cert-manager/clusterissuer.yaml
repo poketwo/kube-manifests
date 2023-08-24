@@ -12,7 +12,7 @@ spec:
       - dns01:
           cloudflare:
             email: oliver.ni@gmail.com
-            apiKeySecretRef:
+            apiTokenSecretRef:
               name: cloudflare-api-token
               key: api-token
       - http01:
