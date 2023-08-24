@@ -1,10 +1,15 @@
 ingress:
   enabled: true
+  className: nginx
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-  className: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
   hosts:
     - dashboard.poketwo.io
+  tls:
+    - hosts:
+        - dashboard.poketwo.io
+      secretName: kubernetes-dashboard-ingress-tls
 
 metricsScraper:
   enabled: true

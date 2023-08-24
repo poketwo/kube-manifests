@@ -24,10 +24,16 @@ config:
 ingress:
   enabled: true
   ingressClassName: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
   hosts:
     - host: retool.poketwo.io
       paths:
         - path: /
+  tls:
+    - hosts:
+        - retool.poketwo.io
+      secretName: retool-ingress-tls
 
 postgresql:
   enabled: false

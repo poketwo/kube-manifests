@@ -20,9 +20,11 @@ initContainers:
       - -c
     args:
       - >-
-        mkdir -p /keycloak/providers /keycloak/themes/keywind
-        && wget -nc -O /keycloak/providers/keycloak-discord-0.4.0.jar https://github.com/wadahiro/keycloak-discord/releases/download/v0.4.1/keycloak-discord-0.4.1.jar
-        && (git -C /keycloak/themes/keywind pull || git clone https://github.com/lukin/keywind /keycloak/themes/keywind)
+        mkdir -p /keycloak/providers /keycloak/themes/keywind && wget -nc -O
+        /keycloak/providers/keycloak-discord-0.4.0.jar
+        https://github.com/wadahiro/keycloak-discord/releases/download/v0.4.1/keycloak-discord-0.4.1.jar
+        && (git -C /keycloak/themes/keywind pull || git clone
+        https://github.com/lukin/keywind /keycloak/themes/keywind)
     volumeMounts:
       - name: keycloak
         mountPath: /keycloak
@@ -33,7 +35,13 @@ service:
 ingress:
   enabled: true
   ingressClassName: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
   hostname: auth.poketwo.io
+  tls:
+    - hosts:
+        - auth.poketwo.io
+      secretName: keycloak-ingress-tls
 
 metrics:
   enabled: true
