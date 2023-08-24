@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: grafana-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
   rules:
@@ -15,3 +17,7 @@ spec:
                 name: grafana
                 port:
                   number: 3000
+  tls:
+    - hosts:
+        - metrics.poketwo.io
+      secretName: grafana-ingress-tls

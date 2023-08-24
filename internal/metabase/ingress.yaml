@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: metabase-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
   rules:
@@ -15,3 +17,7 @@ spec:
                 name: metabase
                 port:
                   number: 3000
+  tls:
+    - hosts:
+        - metabase.poketwo.io
+      secretName: metabase-ingress-tls
