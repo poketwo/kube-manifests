@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: poketwo
-          image: ghcr.io/poketwo/poketwo:oliver-pok-67-update-discordpy
+          image: ghcr.io/poketwo/poketwo:summer_2023
           imagePullPolicy: Always
           resources:
             limits:
@@ -70,6 +70,8 @@ spec:
               value: https://server.poketwo.io
             - name: API_GATEWAY
               value: ws://gateway-proxy:7878
+            - name: ASSETS_BASE_URL
+              value: https://pub-462797061459495f99a9c1980ad82b2f.r2.dev/
 
             - name: LANG_ROOT
               value: lang/{locale}
