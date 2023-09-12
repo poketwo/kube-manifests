@@ -2,6 +2,7 @@ auth:
   adminUser: admin
   existingSecret: keycloak-auth
 
+production: true
 proxy: edge
 replicaCount: 1
 resources:
