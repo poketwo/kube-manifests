@@ -6,7 +6,7 @@ helmCharts:
   - releaseName: retool
     namespace: internal
     name: retool
-    version: 5.0.1
+    version: 6.0.2
     repo: https://charts.retool.com
     valuesFile: values.yaml
 

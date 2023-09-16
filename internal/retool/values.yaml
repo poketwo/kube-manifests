@@ -1,6 +1,6 @@
 image:
   repository: tryretool/backend
-  tag: 3.0.3
+  tag: 3.10.2
 
 config:
   licenseKeySecretName: retool-auth
@@ -39,7 +39,7 @@ postgresql:
   enabled: false
 
 persistentVolumeClaim:
-  enabled: true
+  enabled: false
   accessModes:
     - ReadWriteOnce
   size: 20Gi
