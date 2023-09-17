@@ -90,11 +90,11 @@ spec:
                   name: outline
                   key: oidc-client-secret
             - name: OIDC_AUTH_URI
-              value: https://auth.poketwo.io/realms/poketwo.net/protocol/openid-connect/auth
+              value: https://auth.poketwo.io/realms/poketwo/protocol/openid-connect/auth
             - name: OIDC_TOKEN_URI
-              value: https://auth.poketwo.io/realms/poketwo.net/protocol/openid-connect/token
+              value: https://auth.poketwo.io/realms/poketwo/protocol/openid-connect/token
             - name: OIDC_USERINFO_URI
-              value: https://auth.poketwo.io/realms/poketwo.net/protocol/openid-connect/userinfo
+              value: https://auth.poketwo.io/realms/poketwo/protocol/openid-connect/userinfo
             - name: OIDC_DISPLAY_NAME
               value: Pokétwo
       initContainers:
