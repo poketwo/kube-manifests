@@ -30,9 +30,6 @@ initContainers:
       - name: keycloak
         mountPath: /keycloak
 
-service:
-  type: ClusterIP
-
 ingress:
   enabled: true
   ingressClassName: nginx
