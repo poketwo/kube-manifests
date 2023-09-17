@@ -36,10 +36,7 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
   hostname: auth.poketwo.io
-  tls:
-    - hosts:
-        - auth.poketwo.io
-      secretName: keycloak-ingress-tls
+  tls: true
 
 metrics:
   enabled: true
