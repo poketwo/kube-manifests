@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: imgen-rust
+  annotations:
+    service.kubernetes.io/topology-aware-hints: auto
+spec:
+  selector:
+    app: imgen-rust
+  ports:
+    - port: 8000

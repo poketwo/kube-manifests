@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: imgen-rust-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: imgen.poketwo.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: imgen-rust
+                port:
+                  number: 8000
+  tls:
+    - hosts:
+        - imgen.poketwo.io
+      secretName: imgen-rust-ingress-tls
