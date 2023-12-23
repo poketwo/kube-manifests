@@ -65,6 +65,8 @@ spec:
 
             - name: SERVER_URL
               value: http://image-server.poketwo.svc.cluster.local:8080
+            - name: IMGEN_URL
+              value: http://imgen-rust.poketwo.svc.cluster.local:8000
             - name: EXT_SERVER_URL
               value: https://server.poketwo.io
             # - name: API_BASE
