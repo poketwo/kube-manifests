@@ -4,7 +4,7 @@ metadata:
   name: poketwo
   namespace: poketwo
 spec:
-  replicas: 0
+  replicas: 152
   selector:
     matchLabels:
       app: poketwo
