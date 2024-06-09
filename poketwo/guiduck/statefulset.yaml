@@ -73,5 +73,13 @@ spec:
                   name: redis-auth
                   key: password
 
+            - name: OUTLINE_BASE_URL
+              value: https://outline.poketwo.io
+            - name: OUTLINE_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: guiduck
+                  key: outline_api_token
+
       imagePullSecrets:
         - name: ghcr-auth
