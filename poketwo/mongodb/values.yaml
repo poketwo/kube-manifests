@@ -30,7 +30,6 @@ externalAccess:
     ports:
       mongodb: 27017
     loadBalancerIPs:
-      - 204.16.243.205
       - 204.16.243.206
       - 204.16.243.207
 
