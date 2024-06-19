@@ -23,6 +23,17 @@ persistence:
   enabled: true
   size: 3Ti
 
+externalAccess:
+  enabled: true
+  service:
+    type: LoadBalancer
+    ports:
+      mongodb: 27017
+    loadBalancerIPs:
+      - 204.16.243.205
+      - 204.16.243.206
+      - 204.16.243.207
+
 volumePermissions:
   enabled: true
 
